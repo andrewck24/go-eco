@@ -70,7 +70,7 @@ const ProposalPage = () => {
 	const navigate = useNavigate();
 	const handleConfirm = async (formData) => {
 		const hostId = user._id;
-		const updateTime = dayjs().format("YYYY-MM-DD HH:mm:ss");
+		const updateTime = dayjs();
 		const {
 			name,
 			begDate,
@@ -132,8 +132,8 @@ const ProposalPage = () => {
 						onChange={(date) => {
 							setFormData({
 								...formData,
-								begDate: dayjs(date).format("YYYY-MM-DD"),
-								endDate: dayjs(date).format("YYYY-MM-DD"),
+								begDate: date,
+								endDate: date,
 							});
 						}}
 					/>
@@ -144,7 +144,7 @@ const ProposalPage = () => {
 							onChange={(time) => {
 								setFormData({
 									...formData,
-									begTime: time.format("HH:mm"),
+									begTime: time,
 								});
 							}}
 						/>
@@ -154,7 +154,7 @@ const ProposalPage = () => {
 							onChange={(time) => {
 								setFormData({
 									...formData,
-									endTime: time.format("HH:mm"),
+									endTime: time,
 								});
 							}}
 						/>
@@ -171,7 +171,7 @@ const ProposalPage = () => {
 					onChange={(date) => {
 						setFormData({
 							...formData,
-							applyEndDate: dayjs(date).format("YYYY-MM-DD"),
+							applyEndDate: date,
 						});
 					}}
 				/>
