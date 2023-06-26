@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { Avatar, Button, Skeleton } from "@mui/material";
 import styled from "@emotion/styled";
+import dayjs from "dayjs";
 // import Map from "../components/Map";
 
 import presentEventState from "../recoil/presentEventState";
@@ -33,14 +34,14 @@ const RegisterContainer = styled.div`
 
 const Title = styled.div`
 	padding: 1rem 0;
-	font-size: 3rem;
+	font-size: 2rem;
 	text-align: left;
 	font-weight: 700;
 `;
 
 const SectionTitle = styled.div`
-	padding: 1rem 0 0 0;
-	font-size: 2rem;
+	padding: 1rem 0 0;
+	font-size: 1.75rem;
 	text-align: left;
 	font-weight: 600;
 `;
@@ -127,14 +128,22 @@ const EventPage = () => {
 			</Container>
 		);
 	} else {
-		const detailArr = presentEvent.introduction.detail.split("\n");
-		const { hostName, hostAvatar, hostPicture } = presentEvent;
-		const { given, family } = hostName;
+		const {
+			name,
+			hostName: { given, family },
+			hostAvatar,
+			hostPicture,
+			location: { name: locationName, address },
+			eventDate: { begDate, begTime, endDate, endTime },
+			applyDate: { endDate: applyEndDate },
+			introduction: { brief, detail },
+		} = presentEvent;
+		const detailArr = detail.split("\n");
 
 		return (
 			<Container>
 				<RegisterContainer>
-					<Title>{presentEvent.name}</Title>
+					<Title>{name}</Title>
 					<Paragraph>
 						<Text>
 							<HostImg
@@ -147,18 +156,20 @@ const EventPage = () => {
 							{/* TODO: 增加導向個人介面功能 */}
 							<Link>{`${family}, ${given}`}</Link>
 						</Text>
-						<Text>地點：{presentEvent.location.name}</Text>
-						<Text>地址：{presentEvent.location.address}</Text>
+						<Text>地點：{locationName}</Text>
+						<Text>地址：{address}</Text>
 						<Text>
-							活動開始時間：{presentEvent.eventDate.begDate}{" "}
-							{presentEvent.eventDate.begTime}
+							活動開始時間：{dayjs(begDate).format("YYYY-MM-DD")}{" "}
+							{dayjs(begTime).format("HH:mm")}
 						</Text>
 						<Text>
-							活動結束時間：{presentEvent.eventDate.endDate}{" "}
-							{presentEvent.eventDate.endTime}
+							活動結束時間：{dayjs(endDate).format("YYYY-MM-DD")}{" "}
+							{dayjs(endTime).format("HH:mm")}
 						</Text>
-						<Text>募集截止日期：{presentEvent.applyDate.endDate}</Text>
-						<Text>{presentEvent.introduction.brief}</Text>
+						<Text>
+							募集截止日期：{dayjs(applyEndDate).format("YYYY-MM-DD")}
+						</Text>
+						<Text>{brief}</Text>
 					</Paragraph>
 					<SectionTitle>活動詳細資訊</SectionTitle>
 					<Paragraph>
