@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 import { Avatar, IconButton } from "@mui/material";
+import PropTypes from "prop-types";
 import avatarArr from "../../utils/avatarArr";
 
 const Container = styled.div`
@@ -57,6 +58,14 @@ const AvatarGroup = ({ user, setUser }) => {
 			</ButtonGroup>
 		</Container>
 	);
+};
+
+AvatarGroup.propTypes = {
+	user: PropTypes.shape({
+		avatar: PropTypes.number.isRequired,
+		picture: PropTypes.string,
+	}).isRequired,
+	setUser: PropTypes.func.isRequired,
 };
 
 export default AvatarGroup;

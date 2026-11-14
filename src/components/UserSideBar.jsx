@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
+import userState from "../recoil/userState";
 
 const SideBar = styled.div`
 	display: grid;
@@ -75,9 +76,10 @@ const LogOutWindowRow2 = styled.div`
 
 const UserSideBar = () => {
 	const [show, setWindowShow] = useState(false);
+	const [user, setUser] = useRecoilState(userState);
 
-	function handleLogOut(){ 
-		if(logIn) setLogIn(false); 
+	function handleLogOut() {
+		if (user.login) setUser({ ...user, login: false });
 	}
 
 	const Window = (prop) => {

@@ -1,4 +1,5 @@
-import React from "react";
+/* global process */
+
 import ReactDOM from "react-dom/client";
 import "normalize.css";
 import "./main.css";

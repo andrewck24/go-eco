@@ -40,12 +40,6 @@ const LeftFooterText = styled.div`
 // 	display: grid;
 // `;
 
-const RightFooterRow = styled.div`
-	color: rgba(217, 217, 217, 1);
-	font-weight: 700;
-	text-decoration: none;
-`;
-
 const FooterText = styled.div`
 	padding: 1rem 0;
 	grid-column: 1 / 3;

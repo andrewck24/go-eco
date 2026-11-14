@@ -33,6 +33,6 @@ const styles = {
 	rowContentPaddingBottom: "1rem",
 };
 
-const FAQ = () => <Faq data={data} styles={styles} />;
+const FAQSection = () => <Faq data={data} styles={styles} />;
 
-export default FAQ;
+export default FAQSection;
