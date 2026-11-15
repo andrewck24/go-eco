@@ -1,8 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useRecoilState } from "recoil";
 import styled from "@emotion/styled";
-
-import eventsDataState from "./recoil/eventsDataState";
 
 // React Component
 import NavBar from "./components/NavBar";
@@ -35,15 +32,6 @@ const PageContainer = styled.main`
 
 const App = () => {
 	// TODO: 頁面首次載入時，取得最新的活動資料
-	const [eventsData, setEventsData] = useRecoilState(eventsDataState);
-	// useEffect(() => {
-	// 	const fetchEventsData = async () => {
-	// 		const response = fetch("/netlify/functions/getEvents");
-	// 		const data = await response.json();
-	// 		setEventsData(data);
-	// 	};
-	// 	fetchEventsData();
-	// }, [setEventsData]);
 
 	return (
 		<BrowserRouter>

@@ -20,16 +20,6 @@ const Container = styled(Link)`
 	background-color: ${(prop) => prop.backgroundColor};
 `;
 
-const EventPicture = styled.img`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: 90%;
-	height: auto;
-	padding: 5%;
-	border-radius: 1rem;
-`;
-
 // const EventInfoContainer = styled.div`
 // 	width: 90%;
 // 	padding: 0% 5% 5% 5%;
@@ -72,7 +62,6 @@ const Event = (prop) => {
 
 	return (
 		<Container to="/event" backgroundColor={prop.backgroundColor}>
-			{/* <EventPicture src={prop.src} /> */}
 			{/* <EventInfoContainer> */}
 			<EventTitle>{prop.eventName}</EventTitle>
 			<EventDetail>

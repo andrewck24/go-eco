@@ -6,6 +6,7 @@ import {
 	Typography,
 	styled,
 } from "@mui/material";
+import PropTypes from "prop-types";
 import {
 	MdOutlineDateRange,
 	MdOutlineAccessTime,
@@ -50,6 +51,12 @@ const EventCard = (props) => {
 			</CardActionArea>
 		</Card>
 	);
+};
+
+EventCard.propTypes = {
+	event: PropTypes.shape({
+		_id: PropTypes.string,
+	}),
 };
 
 export default EventCard;
